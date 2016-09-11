@@ -1,0 +1,28 @@
+<% @products.each_with_index do |product, index| %>
+  <tr>
+    <td><%= index+1 %></td>
+    <td>
+      <% if product.image.present? %>
+        <%= image_tag product.image.url, size: Settings.admin.product_size %>
+      <% else %>
+        <%= image_tag(Settings.products.default_product,
+          size: Settings.admin.product_size) %>
+      <% end %>
+    </td>
+    <td><%= product.name %></td>
+    <td><%= product.price %></td>
+    <td><%= product.quantity %></td>
+    <td>
+      <%= link_to admin_product_path(product),
+        data: {toggle: "tooltip", placement: "top"}, title: "Edit" do %>
+        <span class= "glyphicon glyphicon-pencil" ></span>
+      <% end %>
+      <%= link_to admin_product_path(product), method: :delete,
+        data: {confirm: "You sure?",
+        toggle: "tooltip", placement: "top"},
+        title: "Delete" do %>
+        <span class= "glyphicon glyphicon-trash" ></span>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

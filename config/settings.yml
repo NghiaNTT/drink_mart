@@ -1,0 +1,9 @@
+per_page: 5
+admin:
+  product_size: "120x150"
+  product_large_edit: "400x490"
+products:
+  per_page: 8
+  product_size: "120x150"
+  product_size_large: "300x400"
+  default_product: "/assets/default.jpg"

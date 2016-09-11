@@ -1,0 +1,48 @@
+<%= form_for [:admin, @product] do |f| %>
+  <table class="table">
+    <div class="col-md-5">
+      <% if @product.image.present? %>
+        <%= image_tag(@product.image,
+          size: Settings.admin.product_large_edit) %>
+      <% else %>
+        <%= image_tag(Settings.products.default_product,
+          size: Settings.admin.product_large_edit) %>
+      <% end %>
+      <span class="image">
+        <%= f.label :image %><br>
+        <%= f.file_field :image, accept:
+          "image/jpeg,image/gif,image/png", class: "btn btn-success" %>
+      </span>
+    </div>
+    <div class="col-md-7">
+      <%= render "shared/error_message", object: @product %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :price %>
+        <%= f.text_field :price, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_field :description, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :quantity %>
+        <%= f.number_field :quantity, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :category %><br>
+        <%= f.collection_select :category_id, @categories, :id, :title,
+          class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit :Submit, class: "btn btn-success form-control" %>
+      </div>
+      <br>
+        <%= link_to "Back", admin_product_path,
+          class: "btn btn-primary" %>
+    </div>
+  </table>
+<% end %>
