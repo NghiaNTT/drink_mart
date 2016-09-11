@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
   end
 
   private
-  def book_params
+  def product_params
     params.require(:product).permit :id, :name, :price, :quantity,
       :category_id, :description, :average
   end
