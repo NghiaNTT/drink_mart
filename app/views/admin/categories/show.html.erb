@@ -1,0 +1,10 @@
+<% provide :title, @category.title %>
+<div class="row">
+  <section class="user_info">
+    <% if @category.products.present? %>
+      <% @products.each do |product| %>
+        <%= render "products/product", product: @products %>
+      <% end %>
+    <% end %>
+  </section>
+</div>
