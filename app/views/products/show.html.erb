@@ -1,0 +1,32 @@
+<% provide :title, @product.name %>
+<div class="row" id="show_book">
+  <p id="info"></p>
+  <div class="col-md-3">
+    <% if @product.image.present? %>
+      <%= image_tag(@product.image, size: Settings.products.product_size_large,
+        class: "img-thumbnail") %>
+    <% else %>
+      <%= image_tag(Settings.products.default_product,
+        size: Settings.products.product_size_large,
+        class: "img-thumbnail") %>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <div class="detail">
+      <div class="title">
+        <h2><b><%= @product.name %></b></h2>
+      </div>
+      <h4><b><%= "Price" %></b></h4>
+      <p><%= @product.price %></p>
+      <h4><b><%= "Description" %></b></h4>
+      <p><%= @product.description %></p>
+      <h4><b><%= "Quantity" %></b></h4>
+      <p><%= @product.quantity %></p>
+      <h4><b><%= "Category" %></b></h4>
+      <p><%= @product.category_id %></p>
+      <h4><b><%= "Average rate" %></b></h4>
+      <input type="number", class="rating md", id="average_rate",
+        data-size="sm", value="<%= @product.average %>", readonly>
+    </div>
+  </div>
+</div>
