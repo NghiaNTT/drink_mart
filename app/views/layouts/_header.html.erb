@@ -11,7 +11,7 @@
             <%= link_to "Categories", "#" %>
           </li>
           <li>
-            <%= link_to "Drinks", "#" %>
+            <%= link_to "Products", products_path %>
           </li>
           <% if can? :manage, :all %>
             <li><%= render "layouts/manager" %></li>

@@ -1,0 +1,12 @@
+<div class="row1">
+  <% if product.image.present? %>
+    <%= link_to image_tag(product.image, size: Settings.products.product_size),
+      product, class: "img-thumbnail" %>
+  <% else %>
+    <%= link_to image_tag(Settings.products.default_product,
+      size: Settings.products.product_size), product,
+      class: "img-thumbnail" %>
+  <% end %>
+  <h4><%= link_to product.name, product_path(product) %></h4>
+  <p><%= "Price: " %><%= product.price %></p>
+</div>
