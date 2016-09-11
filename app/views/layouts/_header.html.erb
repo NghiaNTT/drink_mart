@@ -13,6 +13,9 @@
           <li>
             <%= link_to "Drinks", "#" %>
           </li>
+          <% if can? :manage, :all %>
+            <li><%= render "layouts/manager" %></li>
+          <% end %>
         <% end %>
         <% if current_user.present? %>
           <li class="dropdown">

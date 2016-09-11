@@ -1,0 +1,29 @@
+<% provide :title, @product.name %>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-5">
+    <% if @product.image.present? %>
+      <%= image_tag(@product.image, size: Settings.products.product_size_large,
+        class: "img-thumbnail") %>
+    <% else %>
+      <%= image_tag(Settings.products.default_product,
+        size: Settings.products.product_size_large, class: "img-thumbnail") %>
+    <% end %>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-7">
+    <div class="detail">
+      <div class="title">
+        <h2><b><%= @product.name %></b></h2>
+      </div>
+      <h4><%= "Price" %></h4>
+      <p><%= @product.price %></p>
+      <h4><%= "Quantity" %></h4>
+      <p><%= @product.quantity %></p>
+      <h4><%= "Type" %></h4>
+      <p><%= @product.category.title %></p>
+      <h4><%= "Description" %></h4>
+      <p><%= @product.description %></p>
+    </div>
+    <%= link_to "Edit", edit_admin_product_path,
+      class: "btn btn-primary" %>
+  </div>
+</div>
