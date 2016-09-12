@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20160911144855) do
     t.string   "name"
     t.string   "email"
     t.integer  "role",                   default: 1
+    t.string   "avatar"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 20160911144855) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.index ["avatar"], name: "index_users_on_avatar"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
