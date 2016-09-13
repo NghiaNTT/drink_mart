@@ -10,3 +10,4 @@ products:
 users:
   ava_size: "100"
   avatar: "/assets/avatar.jpg"
+  comment_ava: "50x50"

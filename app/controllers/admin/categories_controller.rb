@@ -14,7 +14,7 @@ class Admin::CategoriesController < ApplicationController
 
   def show
     if @category.present?
-      @books = Product.in_category(params[:category_id])
+      @products = Product.in_category(params[:category_id])
     else
       flash[:alert] = "There are no product"
     end
