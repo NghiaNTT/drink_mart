@@ -8,6 +8,11 @@ class ProductsController < ApplicationController
   end
 
   def show
+    if current_user.present?
+      @new_review = current_user.reviews.build
+    end
+      @reviews = @product.reviews.order(updated_at: :desc)
+       .page(params[:page]).per Settings.per_page
   end
 
   private
