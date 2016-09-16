@@ -4,10 +4,11 @@ admin:
   product_large_edit: "400x490"
 products:
   per_page: 8
-  product_size: "120x150"
+  product_size: "220x270"
   product_size_large: "300x400"
   default_product: "/assets/default.jpg"
 users:
-  ava_size: "100"
+  ava_size: "50x50"
+  ava_profile_size: "100x100"
   avatar: "/assets/avatar.jpg"
   comment_ava: "50x50"

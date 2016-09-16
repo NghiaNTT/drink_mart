@@ -1,22 +1,17 @@
 <% provide :title, "All categories" %>
 <h1><%= "All categories" %></h1>
-<div class="col-md-12">
-  <div>
-    <%= link_to "Add category", new_admin_category_path,
-      class: "btn btn-primary" %>
-  </div><br>
+<div>
+  <%= link_to "Add category", new_admin_category_path,
+    class: "btn btn-primary" %>
+</div><br>
 <div class="categories">
   <%= search_form_for [:admin, @search], url: admin_categories_path,
-    method: :get do |f| %>
-    <table class="table">
-      <tr>
-        <td><%= f.search_field :title_cont, class: "form-control",
-          placeholder: "Title" %></td>
-        <td><%= f.submit "Search", class: "btn btn-info" %></td>
-      </tr>
-    </table>
+    method: :get, class: "form-inline" do |f| %>
+      <%= f.search_field :title_cont, class: "form-control",
+          placeholder: "Title" %>
+      <%= f.submit "Search", class: "btn btn-info" %>
   <% end %>
-</div>
+</div><br>
 <table class="table table-striped">
   <thead>
     <tr class="info">

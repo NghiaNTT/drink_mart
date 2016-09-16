@@ -9,9 +9,8 @@
           size: Settings.admin.product_large_edit) %>
       <% end %>
       <span class="image">
-        <%= f.label :image %><br>
         <%= f.file_field :image, accept:
-          "image/jpeg,image/gif,image/png", class: "btn btn-success" %>
+          "image/jpeg,image/gif,image/png", class: "btn btn-primary" %>
       </span>
     </div>
     <div class="col-md-7">
@@ -34,15 +33,13 @@
       </div>
       <div class="form-group">
         <%= f.label :category %><br>
-        <%= f.collection_select :category_id, @categories, :id, :title,
-          class: "form-control" %>
+        <%= f.collection_select :category_id, @categories, :id, :title %>
       </div>
       <div class="form-group">
-        <%= f.submit :Submit, class: "btn btn-success form-control" %>
-      </div>
-      <br>
+        <%= f.submit :Submit, class: "btn btn-primary" %>
         <%= link_to "Back", admin_product_path,
-          class: "btn btn-primary" %>
+          class: "btn btn-success" %>
+      </div>
     </div>
   </table>
 <% end %>
