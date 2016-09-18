@@ -1,0 +1,8 @@
+<% unless current_order.id.nil? %>
+  <b class="glyphicon glyphicon-shopping-cart">
+    <%= link_to t("order.title",
+      size: current_order.order_details.size),
+      order_path(current_order), class: "text-right" %>
+  </b>
+<% end %>
+

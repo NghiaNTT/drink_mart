@@ -29,6 +29,31 @@
       <div class="col-md-4">
         <%= link_to "Add to cart", "/cart/#{@product.id}" %>
       </div>
+    <div class="title">
+      <h1><b><%= @product.name %></b></h1>
+    </div>
+    <div class="col-md-3">
+      <div class="detail">
+        <h4><b><%= "Price" %></b></h4>
+        <p><%= @product.price %></p>
+        <h4><b><%= "Quantity" %></b></h4>
+        <p><%= @product.quantity %></p>
+        <h4><b><%= "Category" %></b></h4>
+        <p><%= @product.category_id %></p>
+        <h4><b><%= "Average rate" %></b></h4>
+        <p><%= @product.average %></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <%= form_for @order_detail do |f| %>
+        <div class="input-group-btn">
+          <div class="input-group">
+            <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+          </div>
+          <%= f.hidden_field :product_id, value: params[:id] %>
+          <%= f.submit "Add to cart", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="col-md-12">
@@ -37,7 +62,7 @@
     <%= render "reviews", reviews: @reviews %>
     <% if current_user.present? %>
       <h2><%= "Write review" %></h2>
-      <%= render "reviews/review_form", review: @new_review %>
+        <%= render "reviews/review_form", review: @new_review %>
     <% end %>
   </div>
 </div>

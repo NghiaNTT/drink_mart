@@ -29,3 +29,5 @@ User.create!(name: "Admin", email: "admin@gmail.com",
   end
 
 Category.create! title: "Soda"
+
+Order.create! id: 1

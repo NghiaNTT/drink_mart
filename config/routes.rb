@@ -16,7 +16,12 @@ Rails.application.routes.draw do
   resources :categories
   resources :reviews
   resources :users
+<<<<<<< HEAD
   resources :cart
+=======
+  resources :orders, only: [:show, :update, :index]
+  resources :order_details, except: [:show, :new]
+>>>>>>> cart order
 
   namespace :admin do
     resources :products
