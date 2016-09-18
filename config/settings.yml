@@ -12,3 +12,6 @@ users:
   ava_profile_size: "100x100"
   avatar: "/assets/avatar.jpg"
   comment_ava: "50x50"
+order:
+  product_size: "70x70"
+  cart_size: "40x40"

@@ -6,11 +6,16 @@ Rails.application.routes.draw do
   get "help" => "static_pages#help"
   get "about"   => "static_pages#about"
   get "contact" => "static_pages#contact"
+  get "/cart" =>"cart#index"
+  delete "/cart/:id/delete" => "cart#destroy"
+  get "/cart/:id" =>"cart#create"
+  post "/cart/:id" => "cart#update"
 
   resources :products
   resources :categories
   resources :reviews
   resources :users
+  resources :cart
 
   namespace :admin do
     resources :products

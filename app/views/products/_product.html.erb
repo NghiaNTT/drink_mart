@@ -12,8 +12,8 @@
       <span class ="glyphicon glyphicon-usd"><%= product.price %></span>
     </h4>
     <h4><%= link_to product.name, product_path(product) %></h4>
-    <%= link_to "#", data: {toggle: "tooltip", placement: "top"},
-      title: "Add to cart" do %>
+    <%= link_to "/cart/#{product.id}", data: {toggle: "tooltip", placement: "top"},
+      title: "Add to cart", remote: true do %>
       <span class= "glyphicon glyphicon-shopping-cart"></span>
     <% end %>
     <%= link_to "#", data: {toggle: "tooltip", placement: "top"},
