@@ -1,0 +1,43 @@
+<center><h1><%= t"products.yourcart"%></h1></center>
+<table class="table table-hover">
+  <thead>
+    <tr class="info">
+      <th><%= "Name" %></th>
+      <th><%= "Price" %></th>
+      <th><%= "Image" %></th>
+      <th><%= "Quantity" %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @product_with_quantity.each do |product, quantity|%>
+      <% if quantity.present? %>
+        <tr>
+          <td><%= link_to product.name, product_path(product) %></td>
+          <td><%= product.price %></td>
+          <td>
+            <% if product.image.present? %>
+              <%= link_to image_tag(product.image, size: Settings.order.product_size),
+                product_path(product) %>
+            <% else %>
+              <%= link_to image_tag(Settings.products.default_product,
+                size: Settings.order.product_size),"#" %>
+            <% end %>
+          </td>
+          <td>
+            <%= form_tag "/cart/#{product.id}", method: :post do %>
+              <%= number_field_tag :quantity, {}, value: quantity,
+                min: "1", style: "width: 50px;" %>
+              <%= submit_tag "Update quantity", class:"btn btn-info"%>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to "Delete", "/cart/#{product.id}/delete",
+              method: :delete, data: {confirm: "You sure?"},
+              class:"btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
