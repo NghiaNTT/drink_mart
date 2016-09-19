@@ -15,3 +15,8 @@ users:
 order:
   product_size: "70x70"
   cart_size: "40x40"
+slice:
+  slice1: "/assets/slie5.jpg"
+  slice2: "/assets/slice7.jpg"
+  slice3: "/assets/slice2.jpg"
+  size: "1050x400"
