@@ -1,3 +1,4 @@
+<% unless session[:cart].blank? %>
 <center><h1><%= t"products.yourcart"%></h1></center>
 <table class="table table-hover">
   <thead>
@@ -27,7 +28,7 @@
           <td>
             <%= form_tag "/cart/#{product.id}", method: :post do %>
               <%= number_field_tag :quantity, {}, value: quantity,
-                min: "1", style: "width: 50px;" %>
+                min: "1", max: product.quantity, style: "width: 50px;" %>
               <%= submit_tag "Update quantity", class:"btn btn-info"%>
             <% end %>
           </td>
@@ -41,3 +42,16 @@
     <% end %>
   </tbody>
 </table>
+<hr>
+<% if can? :create, Order %>
+  <span class="btn btn-info active">
+    <%= link_to "Order this cart",
+      current_user ? new_user_orders_path(current_user) : new_user_session_path %>
+  </span>
+<% end %>
+<% else %>
+  <h3>
+    <%= t "views.cart.index.noitemcart" %>
+    <%= link_to "Add new item to cart", products_path %>
+  </h3>
+<% end %>

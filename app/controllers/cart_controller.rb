@@ -22,6 +22,7 @@ class CartController < ApplicationController
 
   def destroy
     session[:cart][params[:id]] = nil
+    session[:cart].delete_if {|key, value| value.blank?}
     redirect_to action: :index
   end
 end
