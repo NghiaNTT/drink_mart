@@ -1,13 +1,13 @@
 class Admin::ProductsController < ApplicationController
   load_and_authorize_resource
   before_action :load_products, only: [:edit, :update]
-  before_action :find_categories, only: [:edit, :update]
+  before_action :find_categories
 
   def index
     @products = Product.in_category params[:category_id]
     @search = @products.ransack params[:q]
     @products = @search.result.order(updated_at: :desc).page(params[:page])
-      .per Settings.per_page
+      .per Settings.admin.per_page
   end
 
   def show
