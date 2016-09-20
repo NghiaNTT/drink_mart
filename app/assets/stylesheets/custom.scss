@@ -36,12 +36,11 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
-  text-align: center;
   font-weight: normal;
-  color: #777;
+  text-align: center;
 }
 
 p {
@@ -60,11 +59,19 @@ p {
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  margin-left: 25px;
 }
 
 #logo:hover {
   color: #fff;
   text-decoration: none;
+}
+
+.navbar-inverse {
+    background-color: white;
+    border-color: #090909;
+    margin-left: 125px;
+    margin-right: 125px;
 }
 
 /* footer */
@@ -134,3 +141,44 @@ footer ul li {
 .footer-title{
     color: green;
   }
+
+.jumbotron {
+  background-color: white;
+}
+
+.header-right {
+  position: relative;
+    min-height: 150px;
+}
+
+#address {
+  position: absolute;
+    left: 0;
+}
+
+#cart-header {
+  position: absolute;
+    right: 0;
+}
+
+.drinkmart-office {
+  text-align: left;
+}
+
+.hotline {
+  color: brown;
+  margin-left: 25px;
+}
+
+.head-new {
+  height: 50px;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.home-end {
+  margin-left: 30px;
+  margin-right: 30px;
+}

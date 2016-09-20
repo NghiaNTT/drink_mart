@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete "/cart/:id/delete" => "cart#destroy"
   get "/cart/:id" =>"cart#create"
   post "/cart/:id" => "cart#update"
+  get "address" =>"static_pages#address"
 
   resources :products
   resources :categories

@@ -1,6 +1,5 @@
 <% provide :title, "All products" %>
 <h1><%= "All products" %></h1>
-<div class="col-md-12">
   <div>
     <%= search_form_for @search, class: "form-inline" do |f| %>
       <%= f.text_field :name_cont, class: "form-control",
