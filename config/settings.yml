@@ -1,12 +1,12 @@
 per_page: 5
 admin:
   product_size: "120x150"
-  product_large_edit: "400x490"
+  product_large_edit: "300x380"
   per_page: 10
 products:
   per_page: 8
   product_size: "220x270"
-  product_size_large: "300x400"
+  product_size_large: "400x490"
   default_product: "/assets/default.jpg"
 users:
   ava_size: "50x50"

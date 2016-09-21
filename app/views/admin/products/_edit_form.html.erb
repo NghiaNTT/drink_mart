@@ -3,14 +3,16 @@
     <div class="col-md-5">
       <% if @product.image.present? %>
         <%= image_tag(@product.image,
-          size: Settings.admin.product_large_edit) %>
+          size: Settings.admin.product_large_edit, 
+          class: "img-thumbnail") %>
       <% else %>
         <%= image_tag(Settings.products.default_product,
-          size: Settings.admin.product_large_edit) %>
+          size: Settings.admin.product_large_edit, 
+          class: "img-thumbnail") %>
       <% end %>
       <span class="image">
         <%= f.file_field :image, accept:
-          "image/jpeg,image/gif,image/png", class: "btn btn-primary" %>
+          "image/jpeg,image/gif,image/png", class: "btn" %>
       </span>
     </div>
     <div class="col-md-7">

@@ -1,24 +1,28 @@
 <div class="row1">
   <div class="product-layout">
-    <% if product.image.present? %>
-      <%= link_to image_tag(product.image, size: Settings.products.product_size),
-        product, class: "img-thumbnail" %>
-    <% else %>
-      <%= link_to image_tag(Settings.products.default_product,
-        size: Settings.products.product_size), product,
-        class: "img-thumbnail" %>
-    <% end %>
+    <div class="show-image">
+      <% if product.image.present? %>
+        <%= link_to image_tag(product.image, size: Settings.products.product_size),
+          product, class: "img-thumbnail" %>
+      <% else %>
+        <%= link_to image_tag(Settings.products.default_product,
+          size: Settings.products.product_size), product,
+          class: "img-thumbnail" %>
+      <% end %>
+    </div>
     <h4>
       <span class ="glyphicon glyphicon-usd"><%= product.price %></span>
     </h4>
-    <h4><%= link_to product.name, product_path(product) %></h4>
-    <%= link_to "/cart/#{product.id}", data: {toggle: "tooltip", placement: "top"},
-      title: "Add to cart", remote: true do %>
-      <span class= "glyphicon glyphicon-shopping-cart"></span>
-    <% end %>
-    <%= link_to "#", data: {toggle: "tooltip", placement: "top"},
-      title: "Add to wishlist" do %>
-      <span class= "glyphicon glyphicon-star" ></span>
+    <% if current_user.present? %>
+      <h4><%= link_to product.name, product_path(product) %></h4>
+      <%= link_to "/cart/#{product.id}", data: {toggle: "tooltip", placement: "top"},
+        title: "Add to cart", remote: true do %>
+        <span class= "glyphicon glyphicon-shopping-cart"></span>
+      <% end %>
+      <%= link_to "#", data: {toggle: "tooltip", placement: "top"},
+        title: "Add to wishlist" do %>
+        <span class= "glyphicon glyphicon-star" ></span>
+      <% end %>
     <% end %>
   </div>
 </div>

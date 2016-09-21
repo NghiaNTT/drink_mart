@@ -1,15 +1,13 @@
-<% provide :title, "All product" %>
-<h1><%= "All product" %></h1>
+<% provide :title, "All products" %>
+<h1><%= "All products" %></h1>
 <div class="col-md-12">
-  <div>
-    <%= search_form_for @search, class: "form-inline" do |f| %>
-      <%= f.text_field :name_cont, class: "form-control",
-        placeholder: "Name" %>
-      <%= f.text_field :price_cont, class: "form-control",
-        placeholder: "Price" %>
-      <%= f.submit "Search", class: "btn btn-primary" %>
-    <% end %>
-  </div><br>
+  <%= search_form_for @search, class: "form-inline" do |f| %>
+    <%= f.text_field :name_cont, class: "form-control",
+      placeholder: "Name" %>
+    <%= f.text_field :price_cont, class: "form-control",
+      placeholder: "Price" %>
+    <%= f.submit "Search", class: "btn btn-primary" %>
+  <% end %><br>
   <table class="table" style="margin-top: 15px">
     <div class="section group">
       <%= render @products %>
