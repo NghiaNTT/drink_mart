@@ -1,18 +1,17 @@
 <%= provide :title, "All users" %>
 <h1><%= "All user" %></h1>
 <div class="col-md-12">
-<%= search_form_for [:admin, @search], class: "form-inline" do |f| %>
-  <%= f.text_field :name_cont, class: "form-control",
-    placeholder: "Name" %>
-  <%= f.text_field :email_cont, class: "form-control",
-    placeholder: "Email" %>
-    <%= f.submit "Search", class: "btn btn-info" %>
-<% end %></br>
+  <%= search_form_for [:admin, @search], class: "form-inline" do |f| %>
+    <%= f.text_field :name_cont, class: "form-control",
+      placeholder: "Name" %>
+    <%= f.text_field :email_cont, class: "form-control",
+      placeholder: "Email" %>
+      <%= f.submit "Search", class: "btn btn-info" %>
+  <% end %></br>
   <table class="table table-hover">
     <thead>
       <tr class="info">
         <th><%= "Index" %></th>
-        <th><%= "Name" %></th>
         <th><%= "Email" %></th>
         <th><%= "Avatar" %></th>
         <th><%= "Action" %></th>
@@ -22,7 +21,6 @@
       <% @users.each_with_index do |user, index| %>
         <tr>
           <td><%= index + 1 %></td>
-          <td><%= link_to user.name, user_path(user.id) %></td>
           <td><%= link_to user.email, user_path(user.id) %></td>
           <td>
             <% if user.avatar.present? %>
@@ -44,8 +42,9 @@
           </td>
         </tr>
       <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 </ul>
 <%= paginate @users %>
 <%= page_entries_info @users %>
