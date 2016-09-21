@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :requests
   has_many :favorites
   has_many :reviews
+  has_many :orders
 
   enum role: [:admin, :member, :guest]
 end

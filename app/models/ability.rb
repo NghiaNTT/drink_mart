@@ -8,6 +8,7 @@ class Ability
     elsif user.member?
       can :read, :all
       can :manage, Review, user_id: user.id
+      can :create, Order
     else
       can :read, :all
     end

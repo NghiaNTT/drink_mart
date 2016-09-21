@@ -15,8 +15,10 @@ Rails.application.routes.draw do
   resources :products
   resources :categories
   resources :reviews
-  resources :users
   resources :cart
+  resources :users do
+    resource :orders, only: [:new, :create, :show]
+  end
 
   namespace :admin do
     resources :products
