@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(version: 20160918214517) do
     t.integer  "each_quantity"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+
+  create_table "order_details", force: :cascade do |t|
+    t.integer  "quantity"
+    t.decimal  "unit_price"
+    t.integer  "product_id"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_details_on_order_id"
+    t.index ["product_id"], name: "index_order_details_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -64,6 +74,11 @@ ActiveRecord::Schema.define(version: 20160918214517) do
     t.text     "shipping_address"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.float    "total_pay"
+    t.integer  "status",     default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
